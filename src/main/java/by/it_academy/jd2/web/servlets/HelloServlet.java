@@ -12,13 +12,15 @@ import java.io.PrintWriter;
 @WebServlet(name = "HelloServlet", urlPatterns = "/hello")
 public class HelloServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req,
-                         HttpServletResponse resp) throws ServletException, IOException {
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        resp.setContentType("text/html");
-        PrintWriter writer = resp.getWriter();
-        writer.write("<p><span style='color: blue;'>Hello, " + lastName + " " + firstName + "!</span></p>");
-    }
+  @Override
+  protected void doGet(HttpServletRequest req,
+                       HttpServletResponse resp) throws ServletException, IOException {
+      String firstName = req.getParameter("firstName");
+      String lastName = req.getParameter("lastName");
+      resp.setContentType("text/html");
+      PrintWriter writer = resp.getWriter();
+      writer.write("<p><span style='color: blue;'>Hello, " + lastName + " " + firstName + "!</span></p>");
+  }
+
+
 }

@@ -16,7 +16,7 @@
  </head>
  <body>
  <p><%= getFormattedDate() %></p>
-  <form action="hello" method="GET">
+  <form action="helloP" method="POST">
     First Name: <input type="text" name="firstName" />
     Last Name: <input type="text" name="lastName" />
     <input type="submit" value="Submit"/>
