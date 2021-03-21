@@ -1,6 +1,8 @@
 package by.it_academy.jd2.web.servlets;
 
 import by.it_academy.jd2.core.dto.PersonUser;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,14 +29,18 @@ public class AddNewUser extends HttpServlet {
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
-        PersonUser user = new PersonUser("", "", "","","","");
+        ServletContext context = getServletContext();
+        context.getRequestDispatcher("/index.jsp").forward(request, response);//пример редиректа. уходим по исполнению
+
+             PersonUser user = new PersonUser("", "", "","","","");
             user.setFirstName(getValueFromSession(request, FIRST_NAME));
             user.setLastName(getValueFromSession(request, LAST_NAME));
             user.setMiddleName(getValueFromSession(request, MIDDLE_NAME));
             user.setDateOfBirth(getValueFromSession(request, DATE_BIRTH));
             user.setLogin(getValueFromSession(request, LOGIN_NAME));
             user.setPassword(getValueFromSession(request, PASSWORD));
-            writer.println("userwas created with parameters :" + "\n" + user);
+
+            writer.println("user was created with parameters :" + "\n" + user);
 
     }
 
