@@ -1,6 +1,6 @@
 package by.it_academy.jd2.web.servlets;
 
-import by.it_academy.jd2.core.Persona;
+import by.it_academy.jd2.core.dto.Person;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -26,7 +26,7 @@ public class PersonaServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         String header = request.getHeader(TYPE_OF_DATA);
-        Persona user = new Persona("", "", "");
+        Person user = new Person("", "", "");
         String[] headerValues = request.getParameterMap().get(header);
 
         for (String value : headerValues) {

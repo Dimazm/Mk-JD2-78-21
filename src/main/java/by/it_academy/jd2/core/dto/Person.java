@@ -1,14 +1,27 @@
-package by.it_academy.jd2.core;
+package by.it_academy.jd2.core.dto;
 
-public class Persona {
+import javax.swing.*;
+import java.io.Serializable;
+import java.text.DateFormat;
+
+public class Person implements Serializable {
     private String firstName;
     private String secondName;
     private String age;
 
-    public Persona(String firstName, String secondName, String middleName) {
+
+    public String getAge() {
+        return age;
+    }
+
+    public Person(String firstName, String secondName, String age) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.age = middleName;
+           this.age = age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getFirstName() {
@@ -26,15 +39,6 @@ public class Persona {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
 
     @Override
     public String toString(){

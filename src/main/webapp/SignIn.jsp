@@ -8,7 +8,6 @@
         return sdf.format(new Date());
 }
 %>
-
 <html>
  <head>
    <title>!DOCTYPE</title>
@@ -16,10 +15,11 @@
  </head>
  <body>
  <p><%= getFormattedDate() %></p>
-  <form action="helloP" method="POST">
-    First Name: <input type="text" name="firstName" />
-    Last Name: <input type="text" name="lastName" />
-    <input  type="submit" value="Submit" />
+ <form method="POST" name="authorization" action="http://example.com/profile.php">
+     Логин: <input type="text" name="username"><br>
+     Пароль: <input type="password" name="user_password"><br>
+     <input type="submit" value="Войти">
+ </form>
   </form>
  </body>
 </html>

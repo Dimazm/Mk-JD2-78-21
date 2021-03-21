@@ -1,7 +1,4 @@
-package by.it_academy.jd2.core.utils;
-
-import by.it_academy.jd2.core.Persona;
-import by.it_academy.jd2.web.servlets.PersonaServlet;
+package by.it_academy.jd2.web.servlets.api;
 
 public enum FormsValues {
     FIRST_NAME ("Dima"),
