@@ -45,6 +45,8 @@
       		<td BGCOLOR=white></td>
       			<td align=right BGCOLOR=lightblue><input type="submit" value="Submit"></td>
       		</tr>
+      		  <p><a href="signIn.jsp">Вход</a></p>
+              <p><a href="index.jsp">Кошки</a></p>
   </form>
  </body>
 </html>
