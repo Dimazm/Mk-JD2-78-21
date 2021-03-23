@@ -1,5 +1,6 @@
 package by.it_academy.jd2.web.servlets;
 
+import by.it_academy.jd2.core.dto.Person;
 import by.it_academy.jd2.core.dto.PersonUser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,29 +30,30 @@ public class LoginUserServlet extends HttpServlet {
         String password = request.getParameter(PASSWORD);
 
         List<PersonUser> usersList = (List<PersonUser>) session.getAttribute("users");
-        if (!isUserRegistered(usersList,login,password)){
+        if (isUserRegistered(usersList, login, password) == null) {
             writer.println("<p><span style='color: red;'>User doesn't exist or Login/Password is incorrect</span></p>");
-        }
-        else {
+        } else {
+            String currentUser = isUserRegistered(usersList, login, password);
+            session.setAttribute("currentUser", currentUser );
             String contextPath = request.getContextPath();
             response.sendRedirect(contextPath + "/welcome.jsp");
         }
     }
 
 
-    public boolean isUserRegistered(List<PersonUser> usersList, String login, String password) {
-        if (usersList == null) {
-            throw new IllegalArgumentException("No Data found, please register any user");
-        } else
+    public String isUserRegistered(List<PersonUser> usersList, String login, String password) {
+        String user = "";
+        if (usersList != null) {
             for (PersonUser u : usersList) {
-            if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
-                return true;
+                if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
+                     user = u.getFirstName() + " " + u.getMiddleName();
+
+                }
             }
+        } else {
+            throw new IllegalArgumentException("No Data found, please register any user");
         }
-        return false;
 
+        return user;
     }
-
 }
-
-

@@ -27,22 +27,26 @@ public class AddNewUser extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         PersonUser user = new PersonUser("",
-                                        "",
-                                        "",
-                                        "",
-                                        "",
-                                        ""
+                "",
+                "",
+                "",
+                "",
+                ""
         );
-
+        HttpSession session = request.getSession();
         user.setFirstName(getValueFromSession(request, FIRST_NAME));
         user.setLastName(getValueFromSession(request, LAST_NAME));
         user.setMiddleName(getValueFromSession(request, MIDDLE_NAME));
         user.setDateOfBirth(getValueFromSession(request, DATE_BIRTH));
-        user.setLogin(getValueFromSession(request, LOGIN_NAME));
-        user.setPassword(getValueFromSession(request, PASSWORD));
 
+        if (!request.getParameter(LOGIN_NAME).equals(session.getAttribute(LOGIN_NAME))) {
+            user.setLogin(getValueFromSession(request, LOGIN_NAME));
+            user.setPassword(getValueFromSession(request, PASSWORD));
+        } else {
+            throw new IllegalArgumentException("User with Name: " + request.getParameter(LOGIN_NAME) + " already exist!");
+        }
         userList.add(user);
-        HttpSession session = request.getSession();
+
         session.setAttribute("users", userList);
 
         //  writer.println("user was created with parameters :" + "\n" + session.getAttribute("users") + "объект " + user);
@@ -65,4 +69,5 @@ public class AddNewUser extends HttpServlet {
         }
         return value;
     }
+
 }

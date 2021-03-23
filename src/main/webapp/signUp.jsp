@@ -20,9 +20,6 @@
             <tr>
       			<td>First Name: </td>
       			<td><input type="text" name="firstName" /></td>
-      			<p>
-      			<input type="button" onclick="location.href='//Mk-JD2-78-21-1.0.0-SNAPSHOT/hello';" value="index">
-      			</p>
             </tr>
       		<tr>
       			<td>Last Name: </td>
