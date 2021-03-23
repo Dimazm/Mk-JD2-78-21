@@ -20,6 +20,9 @@
             <tr>
       			<td>First Name: </td>
       			<td><input type="text" name="firstName" /></td>
+      			<p>
+      			<input type="button" onclick="location.href='//Mk-JD2-78-21-1.0.0-SNAPSHOT/hello';" value="index">
+      			</p>
             </tr>
       		<tr>
       			<td>Last Name: </td>
@@ -31,7 +34,7 @@
       		</tr>
       		<tr>
       			<td>Date of Birth:</td>
-      			<td> <input type="text" name="date" /></td>
+      			<td> <input type="date" name="date" /></td>
       		</tr>
       		<tr>
       			<td>login: </td>
@@ -45,8 +48,6 @@
       		<td BGCOLOR=white></td>
       			<td align=right BGCOLOR=lightblue><input type="submit" value="Submit"></td>
       		</tr>
-      		  <p><a href="signIn.jsp">Вход</a></p>
-              <p><a href="index.jsp">Кошки</a></p>
   </form>
  </body>
 </html>
