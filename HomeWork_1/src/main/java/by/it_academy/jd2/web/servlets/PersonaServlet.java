@@ -25,20 +25,22 @@ public class PersonaServlet extends HttpServlet {
         String header = request.getHeader(TYPE_OF_DATA);
         Person user = new Person("", "", "");
         String[] headerValues = request.getParameterMap().get(header);
-
-        for (String value : headerValues) {
-            if (value.equals(IS_COOKIE)) {
-                user.setFirstName(getCookiesValue(request, response, FIRST_NAME));
-                user.setSecondName(getCookiesValue(request, response, LAST_NAME));
-                user.setAge(getCookiesValue(request, response, AGE));
-                writer.println("Take from Cookies\n" + user);
+        if (headerValues != null) {
+            for (String value : headerValues) {
+                if (value.equals(IS_COOKIE)) {
+                    user.setFirstName(getCookiesValue(request, response, FIRST_NAME));
+                    user.setSecondName(getCookiesValue(request, response, LAST_NAME));
+                    user.setAge(getCookiesValue(request, response, AGE));
+                    writer.println("Take from Cookies" + "</br>" + user);
+                } else if (value.equals(IS_SESSION)) {
+                    user.setFirstName(getSessionsValue(request, FIRST_NAME));
+                    user.setSecondName(getSessionsValue(request, LAST_NAME));
+                    user.setAge(getSessionsValue(request, AGE));
+                    writer.println("Take from Session" + "</br>" + user);
+                }
             }
-            else if (value.equals(IS_SESSION)) {
-                user.setFirstName(getSessionsValue(request, FIRST_NAME));
-                user.setSecondName(getSessionsValue(request, LAST_NAME));
-                user.setAge(getSessionsValue(request, AGE));
-                writer.println("Take from Session\n" + user);
-            }
+        } else {
+            throw new IllegalArgumentException("Please set param for header 'type' = cookie or session");
         }
     }
 
@@ -60,7 +62,7 @@ public class PersonaServlet extends HttpServlet {
             response.addCookie(cookieValue);
         }
         if (value == null) {
-            throw new IllegalArgumentException("No Data found in cookies");
+            throw new IllegalArgumentException("No Data found in cookies.\n Please set params for firstName, lastName, age");
         }
         return value;
     }
@@ -76,7 +78,7 @@ public class PersonaServlet extends HttpServlet {
             session.setAttribute(param, value);
         }
         if (value == null) {
-            throw new IllegalArgumentException("No Data found in session");
+            throw new IllegalArgumentException("No Data found in session. Please set params for firstName, lastName, age");
         }
         return value;
     }

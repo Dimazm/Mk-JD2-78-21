@@ -6,9 +6,11 @@
 
 <html>
   <head>
-   Welcome to Messenger v1.0
+   Hi Ilya san!
   </head>
   <body>
-    <p>Welcome <%= session.getAttribute("currentUser") %> !</p></br>
-  </body>
+    <p>Welcome to Home Work 1.</p></br>
+    <p>Dont forget choose the param=type : cookie or session</p></br>
+    <p><a href="persona">Please reference to check</a></p>
+    </body>
 </html>
