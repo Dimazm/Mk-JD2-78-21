@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>by.it-academy.jd2</groupId>
-    <artifactId>MHomeWork_1</artifactId>
+    <artifactId>HomeWork_1</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 

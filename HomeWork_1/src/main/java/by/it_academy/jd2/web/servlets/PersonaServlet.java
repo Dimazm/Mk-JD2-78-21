@@ -10,15 +10,11 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import static by.it_academy.jd2.core.constants.ServletsConstants.*;
+
 
 @WebServlet(name = "PersonaServlet", urlPatterns = "/persona")
 public class PersonaServlet extends HttpServlet {
-    private String TYPE_OF_DATA = "TYPE_OF_DATA";
-    private String FIRST_NAME = "firstName";
-    private String LAST_NAME = "lastName";
-    private String AGE = "age";
-    private String IS_COOKIE = "cookie";
-    private String IS_SESSION = "session";
 
     @Override
     protected void doGet(HttpServletRequest request,

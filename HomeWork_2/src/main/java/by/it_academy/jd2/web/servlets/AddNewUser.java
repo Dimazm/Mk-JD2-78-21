@@ -8,11 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import static by.it_academy.jd2.core.constants.MessengerConstants.*;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static by.it_academy.jd2.core.constants.MessengerConstants.*;
 
 @WebServlet(name = "AddNewUser", urlPatterns = "/signUp")
 
