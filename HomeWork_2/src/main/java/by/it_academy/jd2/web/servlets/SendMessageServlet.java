@@ -38,9 +38,8 @@ public class SendMessageServlet extends HttpServlet {
         String loginName = (String)session.getAttribute("loginName");
         String usr = request.getParameter(USER_NAME);
 
-        if (UsersView.getUser(loginName) != null) {
+        if (UsersView.getUser(usr) != null) {
             String message = request.getParameter(MESSAGE);
-            String currentUser = (String) session.getAttribute("loginName");
             history.addMessage(usr, loginName + " wrote: " + "\n"
                     + message + "   " + " | at time :" + messageTime);
             String contextPath = request.getContextPath();
