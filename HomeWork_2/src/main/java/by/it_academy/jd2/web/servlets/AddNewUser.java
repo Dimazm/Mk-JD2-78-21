@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class AddNewUser extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        //PrintWriter writer = response.getWriter();
+        PrintWriter writer = response.getWriter();
         PersonUser user = new PersonUser();
         HttpSession session = request.getSession();
         user.setFirstName(getValueFromSession(request, FIRST_NAME));
@@ -40,10 +40,7 @@ public class AddNewUser extends HttpServlet {
             throw new IllegalArgumentException("User with Name: " + request.getParameter(LOGIN_NAME) + " already exist!");
         }
         UsersView.addUser(user);
-
         session.setAttribute("users", UsersView.getUserList());
-
-        //  writer.println("user was created with parameters :" + "\n" + session.getAttribute("users") + "объект " + user);
         String contextPath = request.getContextPath();
         response.sendRedirect(contextPath + "/signIn.jsp");
     }
@@ -51,7 +48,7 @@ public class AddNewUser extends HttpServlet {
     public static String getValueFromSession(HttpServletRequest request, String param) {
         String value = request.getParameter(param);
         HttpSession session = request.getSession();
-        if (value == null) {
+        if (value.isEmpty()) {
             if (!session.isNew()) {
                 value = (String) session.getAttribute(param);
             }

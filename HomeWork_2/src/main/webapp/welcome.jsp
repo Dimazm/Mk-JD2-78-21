@@ -11,7 +11,7 @@
   <body>
     <p>Welcome <%= session.getAttribute("currentUser") %> !</p></br>
     <p><a href="InChat">Open Chat</a></p>
-	<p><a href="Hist">Open History</a></p>
-	<p><a href="addUser">Start Page</a></p>
+	<p><a href="hist">Open History</a></p>
+	<p><a href="addUser">Registration</a></p>
   </body>
 </html>

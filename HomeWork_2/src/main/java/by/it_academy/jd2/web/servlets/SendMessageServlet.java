@@ -2,6 +2,7 @@ package by.it_academy.jd2.web.servlets;
 
 import by.it_academy.jd2.core.dto.PersonUser;
 import by.it_academy.jd2.view.HistoryView;
+import by.it_academy.jd2.view.UsersView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,16 +17,17 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 import static by.it_academy.jd2.core.constants.MessengerConstants.*;
 
 @WebServlet(name = "SendMessageServlet", urlPatterns = "/send")
 public class SendMessageServlet extends HttpServlet {
-private  final HistoryView history = new HistoryView();
+    private final HistoryView history = new HistoryView();
 
     @Override
     protected void doPost(HttpServletRequest request,
-                         HttpServletResponse response) throws ServletException, IOException {
+                          HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
@@ -33,15 +35,18 @@ private  final HistoryView history = new HistoryView();
         LocalDateTime time = LocalDateTime.now();
 
         String messageTime = time.format(DateTimeFormatter.ofPattern("dd.MM.yyy HH:mm:ss"));
-        String userName = request.getParameter(USER_NAME);
-        String message = request.getParameter(MESSAGE + messageTime);
-        history.addMessage(userName,message);
+        String loginName = (String)session.getAttribute("loginName");
+        String usr = request.getParameter(USER_NAME);
 
-
-
-
-
-
-
+        if (UsersView.getUser(loginName) != null) {
+            String message = request.getParameter(MESSAGE);
+            String currentUser = (String) session.getAttribute("loginName");
+            history.addMessage(usr, loginName + " wrote: " + "\n"
+                    + message + "   " + " | at time :" + messageTime);
+            String contextPath = request.getContextPath();
+            response.sendRedirect(contextPath + "/InChat");
+        } else {
+            writer.println("Wrong user name" + "\n" + "<p><a href=\"InChat\">Return</a></p>");
+        }
     }
 }

@@ -30,30 +30,33 @@ public class LoginUserServlet extends HttpServlet {
         String password = request.getParameter(PASSWORD);
 
         List<PersonUser> usersList = (List<PersonUser>) session.getAttribute("users");
-        if (isUserRegistered(usersList, login, password) == null) {
-            writer.println("<p><span style='color: red;'>User doesn't exist or Login/Password is incorrect</span></p>");
+        if (getRegisteredUser(usersList, login, password, writer)==null) {
+            writer.println("<p><span style='color: red;'>User doesn't exist or Login/Password is incorrect</span></p>"
+                    + "\n" + "<p><a href=\"loginPage\">Re-Login</a></p>");
         } else {
-            String currentUser = isUserRegistered(usersList, login, password);
+            String currentUser = getRegisteredUser(usersList, login, password,writer);
             session.setAttribute("currentUser", currentUser );
+            session.setAttribute("loginName",login);
             String contextPath = request.getContextPath();
             response.sendRedirect(contextPath + "/welcome.jsp");
         }
     }
 
 
-    public String isUserRegistered(List<PersonUser> usersList, String login, String password) {
-        String user = "";
+    public String getRegisteredUser(List<PersonUser> usersList, String login, String password, PrintWriter writer) {
+
         if (usersList != null) {
+            String user = "";
             for (PersonUser u : usersList) {
                 if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
                      user = u.getFirstName() + " " + u.getMiddleName();
-
+                     return user;
                 }
             }
         } else {
-            throw new IllegalArgumentException("No Data found, please register any user");
+            writer.println("No Data found, please register any user"
+                    + "\n" + "<p><a href=\"addUser\">Register</a></p>");
         }
-
-        return user;
+return null;
     }
 }

@@ -23,6 +23,8 @@
 		<td ALIGN=right<p><input type="submit" value="Send" style="background: lightblue; width: 100px; height: 30px;font-size: 14pt;"></p>
 		</td>
 	 </tr>
-<div>Messenger Version1.0</div>
+	 <p><a href="hist">Open History</a></p>
+	 <p><a href="loginPage">Exit</a></p>
+<div>Messenger Version 1.0</div>
 </body>
 </html>
