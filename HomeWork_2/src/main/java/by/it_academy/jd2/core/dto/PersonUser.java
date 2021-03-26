@@ -11,13 +11,8 @@ public class PersonUser implements Serializable    {
         private String middleName;
         private String dateOfBirth;
 
-    public PersonUser(String login, String password, String firstName, String secondName, String middleName, String dateOfBirth) {
-        this.login = login;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = secondName;
-        this.middleName = middleName;
-        this.dateOfBirth = dateOfBirth;
+    public PersonUser() {
+
     }
 
 

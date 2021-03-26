@@ -8,5 +8,7 @@ public class MessengerConstants {
     public static final String DATE_BIRTH = "date";
     public static final String LOGIN_NAME = "login";
     public static final String PASSWORD = "password";
+    public static final String MESSAGE = "message";
+    public static final String USER_NAME = "userName";
 
 }

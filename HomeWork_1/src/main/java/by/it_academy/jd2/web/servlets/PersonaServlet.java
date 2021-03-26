@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 import static by.it_academy.jd2.core.constants.ServletsConstants.*;
 
-
 @WebServlet(name = "PersonaServlet", urlPatterns = "/persona")
 public class PersonaServlet extends HttpServlet {
 

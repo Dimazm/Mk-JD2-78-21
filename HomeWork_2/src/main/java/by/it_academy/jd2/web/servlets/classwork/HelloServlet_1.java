@@ -1,4 +1,4 @@
-package by.it_academy.jd2.web.servlets;
+package by.it_academy.jd2.web.servlets.classwork;
 
 import by.it_academy.jd2.view.NameView;
 import jakarta.servlet.ServletException;

@@ -1,6 +1,7 @@
 package by.it_academy.jd2.web.servlets;
 
 import by.it_academy.jd2.core.dto.PersonUser;
+import by.it_academy.jd2.view.UsersView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,20 +21,12 @@ import static by.it_academy.jd2.core.constants.MessengerConstants.*;
 
 public class AddNewUser extends HttpServlet {
 
-    private List<PersonUser> userList = new ArrayList<>();
-
     @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         //PrintWriter writer = response.getWriter();
-        PersonUser user = new PersonUser("",
-                "",
-                "",
-                "",
-                "",
-                ""
-        );
+        PersonUser user = new PersonUser();
         HttpSession session = request.getSession();
         user.setFirstName(getValueFromSession(request, FIRST_NAME));
         user.setLastName(getValueFromSession(request, LAST_NAME));
@@ -46,9 +39,9 @@ public class AddNewUser extends HttpServlet {
         } else {
             throw new IllegalArgumentException("User with Name: " + request.getParameter(LOGIN_NAME) + " already exist!");
         }
-        userList.add(user);
+        UsersView.addUser(user);
 
-        session.setAttribute("users", userList);
+        session.setAttribute("users", UsersView.getUserList());
 
         //  writer.println("user was created with parameters :" + "\n" + session.getAttribute("users") + "объект " + user);
         String contextPath = request.getContextPath();
