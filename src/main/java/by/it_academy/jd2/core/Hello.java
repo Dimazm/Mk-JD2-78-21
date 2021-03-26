@@ -1,20 +1,24 @@
 package by.it_academy.jd2.core;
-import by.it_academy.jd2.core.utils.ApacheCommonsLang3;
+
+import by.it_academy.jd2.view.NameView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Hello {
-    /**
-     * the first method for all Junior Developers
-     *
-     * @param args is String with samples to test
-     *
-     * @return {@code true} if only contains lowercase characters, and is non-null
-     */
+
     public static void main(String[] args) {
 
-        for (String arg:args) {
-            if (ApacheCommonsLang3.isAllLowerCase(arg)){
-                System.out.println(arg);
-            }
+        NameView view = new NameView();
+        Scanner scanner = new Scanner(System.in);
+        String next = null;
+        System.out.println("Please inter the names");
+        while (!(next = scanner.next()).equalsIgnoreCase("exit"))
+        {
+            view.addNames(next);
         }
+        System.out.println(view.getAll());
+
     }
 }

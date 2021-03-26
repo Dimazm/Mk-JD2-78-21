@@ -1,4 +1,4 @@
-package by.it_academy.jd2.core.constant;
+package by.it_academy.jd2.core.constants;
 
  public final class MessengerConstants {
 

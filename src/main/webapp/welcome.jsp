@@ -6,7 +6,7 @@
 
 <html>
   <head>
-   Welcome to Messenger!
+   Welcome to Messenger v1.0
   </head>
   <body>
     <p>Welcome <%= session.getAttribute("currentUser") %> !</p></br>

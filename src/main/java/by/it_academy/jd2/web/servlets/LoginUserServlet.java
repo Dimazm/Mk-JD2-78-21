@@ -1,6 +1,5 @@
 package by.it_academy.jd2.web.servlets;
 
-import by.it_academy.jd2.core.dto.Person;
 import by.it_academy.jd2.core.dto.PersonUser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import static by.it_academy.jd2.core.constant.MessengerConstants.*;
+import static by.it_academy.jd2.core.constants.MessengerConstants.*;
 
 @WebServlet(name = "LoginUserServlet", urlPatterns = "/login")
 

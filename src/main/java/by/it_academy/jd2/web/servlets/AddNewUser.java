@@ -8,10 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import static by.it_academy.jd2.core.constant.MessengerConstants.*;
+import static by.it_academy.jd2.core.constants.MessengerConstants.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class AddNewUser extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
+        //PrintWriter writer = response.getWriter();
         PersonUser user = new PersonUser("",
                 "",
                 "",
@@ -69,5 +68,4 @@ public class AddNewUser extends HttpServlet {
         }
         return value;
     }
-
 }
