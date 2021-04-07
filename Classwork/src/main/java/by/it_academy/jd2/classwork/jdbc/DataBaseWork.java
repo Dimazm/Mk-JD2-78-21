@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork;
+package by.it_academy.jd2.classwork.jdbc;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -6,33 +6,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DBnew {
+public class DataBaseWork {
+
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
 
-        try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/edu", "postgres",
+        try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres",
                 "postgres")) {
 
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * from edu.employees");
+            ResultSet rs = stmt.executeQuery("Select * from bookings.flights");
             ResultSetMetaData meta = rs.getMetaData();
             int iColumnCount = meta.getColumnCount();
-            while (rs.next()) {
-                for (int i = 1; i <= iColumnCount; i++) {
-                    System.out.println(meta.getColumnName(i));
-                }
+            for (int i = 1; i<=iColumnCount; i++){
+                System.out.println("Column name: " + meta.getColumnName(i));
+                System.out.println("Column type: " + meta.getColumnType(i));
+                System.out.println("Display Size: " + meta.getColumnDisplaySize(i));
+                System.out.println("Prezidion: " + meta.getPrecision(i));
+                System.out.println("Column name: " + meta.getColumnName(i));
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
-
-
-        } catch(SQLException throwables)
-    {
-        throwables.printStackTrace();
     }
-
-}
-
 
     public static List<String> getTablesMetadata(DatabaseMetaData dbMetaData) throws SQLException {
         List<String> tables = new ArrayList<>();

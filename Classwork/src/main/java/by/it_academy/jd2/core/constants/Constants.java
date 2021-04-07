@@ -1,6 +1,6 @@
 package by.it_academy.jd2.core.constants;
 
-public class MessengerConstants {
+public class Constants {
 
     public static final String FIRST_NAME = "firstName";
     public static final String LAST_NAME = "lastName";

@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork;
+package by.it_academy.jd2.classwork.jdbc;
 
 import java.sql.*;
 import java.util.ArrayList;

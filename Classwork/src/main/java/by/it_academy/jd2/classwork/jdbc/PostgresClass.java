@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork;
+package by.it_academy.jd2.classwork.jdbc;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class PostgresClass {
 
         public static void main(String[] args) throws ClassNotFoundException, SQLException {
             Class.forName("org.postgresql.Driver");
-            try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demo", "postgres",
+            try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/edu", "postgres",
                     "postgres")) {
                 DatabaseMetaData metaData = conn.getMetaData();
                 List<String> tables = getTablesMetadata(metaData);
