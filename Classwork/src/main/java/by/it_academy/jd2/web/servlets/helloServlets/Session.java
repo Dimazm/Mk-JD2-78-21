@@ -1,4 +1,4 @@
-package by.it_academy.jd2.web.servlets.classwork;
+package by.it_academy.jd2.web.servlets.helloServlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,7 +6,6 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.concurrent.TimeUnit;
 
 @WebServlet(name = "Session", urlPatterns = "/session")
 public class Session extends HttpServlet {

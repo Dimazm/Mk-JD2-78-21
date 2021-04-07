@@ -1,4 +1,4 @@
-package by.it_academy.jd2.web.servlets.classwork;
+package by.it_academy.jd2.web.servlets.helloServlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
