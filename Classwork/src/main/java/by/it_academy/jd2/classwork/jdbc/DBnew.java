@@ -23,9 +23,6 @@ public class DBnew {
                     System.out.println(meta.getColumnName(i));
                 }
             }
-
-
-
         } catch(SQLException throwables)
     {
         throwables.printStackTrace();
