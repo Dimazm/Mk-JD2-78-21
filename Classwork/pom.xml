@@ -3,8 +3,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>by.it-academy.jd2</groupId>
-    <artifactId>HomeWork_2</artifactId>
-    <version>1.0.0</version>
+    <artifactId>ClassWork</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <properties>

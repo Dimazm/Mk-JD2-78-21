@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.jacoco:org.jacoco.core:0.5.10.201208310627">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../opt/home/apache-maven-3.6.3/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../opt/home/apache-maven-3.6.3/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../opt/home/apache-maven-3.6.3/org/jacoco/org.jacoco.core/0.5.10.201208310627/org.jacoco.core-0.5.10.201208310627-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
